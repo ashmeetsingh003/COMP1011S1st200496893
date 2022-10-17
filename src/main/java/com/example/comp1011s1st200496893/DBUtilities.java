@@ -44,7 +44,26 @@ public class DBUtilities {
 
         return carsSold;
     }
+    public static ArrayList<Integer>  getYears() {
+        ArrayList<Integer> carSoldByYears = new ArrayList();
+        String sql = "SELECT dateSold FROM carSales;";
 
+        //the try() is called "try with resources"
+        try (
+                Connection conn = DriverManager.getConnection(connectUrl, user, pw);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        ) {
+            while (resultSet.next()) {
+                LocalDate dateSold = resultSet.getDate("dateSold").toLocalDate();
+                carSoldByYears.add(dateSold.getYear());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return carSoldByYears;
+    }
 
 
 
