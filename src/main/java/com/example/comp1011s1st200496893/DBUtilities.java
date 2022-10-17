@@ -1,5 +1,7 @@
 package com.example.comp1011s1st200496893;
 
+import javafx.scene.chart.XYChart;
+
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -64,5 +66,33 @@ public class DBUtilities {
     }
 
 
+    public static XYChart.Series<String,Integer> getCarSoldByMake()
+    {
+        XYChart.Series<String,Integer> carSoldByMake = new XYChart.Series<>();
 
+        //query the DB to get a list of Artists
+        String sql = "SELECT make , count(model) as 'car Sold' " +
+                "FROM carSales " +
+                "Group By make;" ;
+
+        //the try() is called "try with resources"
+        try(
+                Connection conn = DriverManager.getConnection(connectUrl,user,pw);
+                Statement statement = conn.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+        )
+        {
+            //loop over the resultset and returen the top 10 movies
+            while (resultSet.next())
+            {
+                String make = resultSet.getString("make");
+                int carAmount = resultSet.getInt("car Sold");
+                carSoldByMake.getData().add(new XYChart.Data<>(make,carAmount));
+            }
+        }
+        catch (Exception e)
+        {e.printStackTrace();}
+
+        return carSoldByMake;
+    }
 }

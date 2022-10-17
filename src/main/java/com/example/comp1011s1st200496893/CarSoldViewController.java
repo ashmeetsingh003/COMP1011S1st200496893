@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 public class CarSoldViewController implements Initializable {
 
     @FXML
-    private BarChart<?, ?> barChart;
+    private BarChart<String, Integer> barChart;
 
     @FXML
     private TableColumn<CarSold, Integer> carIdColumn;
@@ -53,7 +53,7 @@ public class CarSoldViewController implements Initializable {
     private Label unitSoldLabel;
 
     @FXML
-    private ComboBox<?> yearCombo;
+    private ComboBox<Integer> yearCombo;
 
     @FXML
     private TableView<CarSold> tableView;
@@ -71,6 +71,10 @@ public class CarSoldViewController implements Initializable {
         ArrayList<CarSold> carSold = DBUtilities.getCarSoldFromDB();
         tableView.getItems().addAll(DBUtilities.getCarSoldFromDB());
 
+        yearCombo.getItems().addAll(DBUtilities.getYears());
 
+
+        barChart.setLegendVisible(false);
+        barChart.getData().addAll(DBUtilities.getCarSoldByMake());
     }
 }
