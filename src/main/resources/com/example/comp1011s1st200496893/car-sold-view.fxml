@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011s1st200496893.CarSoldViewController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@../../../../../Assignment1-GC200496893/src/main/resources/com/example/assignment1gc200496893/style.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.comp1011s1st200496893.CarSoldViewController">
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
