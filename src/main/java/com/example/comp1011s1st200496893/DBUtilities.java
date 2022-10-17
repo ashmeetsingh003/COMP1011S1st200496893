@@ -26,7 +26,6 @@ public class DBUtilities {
 
             while (resultSet.next())
             {
-                //creating the car object
                 int carId = resultSet.getInt("carID");
                 int modelYear = resultSet.getInt("modelYear");
                 String make = resultSet.getString("make");
@@ -48,7 +47,6 @@ public class DBUtilities {
         ArrayList<Integer> carSoldByYears = new ArrayList();
         String sql = "SELECT dateSold FROM carSales;";
 
-        //the try() is called "try with resources"
         try (
                 Connection conn = DriverManager.getConnection(connectUrl, user, pw);
                 Statement statement = conn.createStatement();
