@@ -17,7 +17,7 @@
    <children>
       <BorderPane prefHeight="800.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <top>
-            <TableView prefHeight="420.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+            <TableView fx:id="tableView" prefHeight="420.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
               <columns>
                 <TableColumn fx:id="carIdColumn" prefWidth="124.79998475313187" text="Car ID" />
                 <TableColumn fx:id="modelYearColumn" prefWidth="166.40000915527344" text="Model Year" />
